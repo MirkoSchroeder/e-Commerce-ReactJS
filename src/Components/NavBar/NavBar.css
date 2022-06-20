@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333;
+}
+
+img{
+    width: 10%;
+    padding: 10px;
+}
+
+nav {
+    margin: 0;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+li{
+    list-style-type: none;
+    padding: 23px 70px;
+    display: inline-block;
+    font-size: 25px;
+}
+
+a{
+    text-decoration: none;
+    color: grey;
+}
