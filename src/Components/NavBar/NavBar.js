@@ -25,11 +25,3 @@ const Header = () => {
 }
 
 export default Header
-
-/* if(condicion){
-    codigo1
-}else{
-    codigo2
-}
-
-color = condicion ? "white" : "black" */
