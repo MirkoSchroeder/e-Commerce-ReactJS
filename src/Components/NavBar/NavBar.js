@@ -1,11 +1,9 @@
 import React from "react";
 import logo from "../../assets/logo.png"
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { grey } from '@mui/material/colors';
-
+import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css"
 
-const Header = () => {
+const NavBar = () => {
     return (
         <header class="main-header">
             <div class="areas">
@@ -18,21 +16,18 @@ const Header = () => {
                 <div>
                     <p class="paragraph-header">Bienvenido/a</p>
                 </div>
-                <div class="area-items">
-                    <ShoppingCartIcon fontSize="large" sx={{ color: grey[100] }} />
-                </div>
+                <CartWidget contador={0} />
             </div>
 
             <nav>
                 <ul class="navContainer">
-                    <li class="navItem"><a href="">Notebooks</a></li>
-                    <li class="navItem"><a href="">Monitores</a></li>
-                    <li class="navItem"><a href="">Placas de video</a></li>
+                    <li class="navItem"><a href="/">Notebooks</a></li>
+                    <li class="navItem"><a href="/">Monitores</a></li>
+                    <li class="navItem"><a href="/">Placas de video</a></li>
                 </ul>
             </nav>
-
         </header>
     )
 }
 
-export default Header
+export default NavBar
