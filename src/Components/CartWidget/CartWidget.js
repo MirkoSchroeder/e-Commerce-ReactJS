@@ -6,7 +6,7 @@ import "./CartWidget.css"
 
 const CartWidget = ({contador}) => {
     return (
-        <div class="cart-widget">
+        <div className="cart-widget">
             <ShoppingCartIcon fontSize="large" sx={{ color: grey[100] }} />
             {contador}
         </div>

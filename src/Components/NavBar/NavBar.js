@@ -3,27 +3,28 @@ import logo from "../../assets/logo.png"
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css"
 
+
 const NavBar = () => {
     return (
-        <header class="main-header">
-            <div class="areas">
-                <div class="area-logo">
-                    <img class="main-logo" src={logo} alt="" />
+        <header className="main-header">
+            <div className="areas">
+                <div className="area-logo">
+                    <img className="main-logo" src={logo} alt="" />
                 </div>
-                <div class="area-search">
-                    <input class="input" type="text" placeholder="Buscar" />
+                <div className="area-search">
+                    <input className="input" type="text" placeholder="Buscar" />
                 </div>
                 <div>
-                    <p class="paragraph-header">Bienvenido/a</p>
+                    <p className="paragraph-header">Bienvenido/a</p>
                 </div>
                 <CartWidget contador={0} />
             </div>
 
             <nav>
-                <ul class="navContainer">
-                    <li class="navItem"><a href="/">Notebooks</a></li>
-                    <li class="navItem"><a href="/">Monitores</a></li>
-                    <li class="navItem"><a href="/">Placas de video</a></li>
+                <ul className="navContainer">
+                    <li className="navItem"><a href="/">Notebooks</a></li>
+                    <li className="navItem"><a href="/">Monitores</a></li>
+                    <li className="navItem"><a href="/">Placas de video</a></li>
                 </ul>
             </nav>
         </header>
