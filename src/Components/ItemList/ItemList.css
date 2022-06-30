@@ -1,0 +1,7 @@
+.itemsShop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 5%;
+    padding-top: 5%;
+} 

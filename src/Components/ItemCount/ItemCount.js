@@ -35,7 +35,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <>
             <div className='itemCount'>
-                <h5>RTX 2060ti</h5>
                 <div className='itemButtons'>
                     <RemoveIcon fontSize='small' onClick={restarCantidad}></RemoveIcon>
                     <p className='itemsCount'>{contador}</p>

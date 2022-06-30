@@ -4,11 +4,11 @@ import { grey } from '@mui/material/colors';
 
 import "./CartWidget.css"
 
-const CartWidget = ({contador}) => {
+const CartWidget = ({onCart}) => {
     return (
         <div className="cart-widget">
             <ShoppingCartIcon fontSize="large" sx={{ color: grey[100] }} />
-            {contador}
+            {onCart}
         </div>
     )
 }

@@ -17,7 +17,7 @@ const NavBar = () => {
                 <div>
                     <p className="paragraph-header">Bienvenido/a</p>
                 </div>
-                <CartWidget contador={0} />
+                <CartWidget onCart={0} />
             </div>
 
             <nav>
