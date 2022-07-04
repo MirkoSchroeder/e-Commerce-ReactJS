@@ -4,10 +4,20 @@ import ItemCount from '../ItemCount/ItemCount'
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 import { promesa } from '../../mocks/fakeApi';
+import { SpinnerCircular } from 'spinners-react';
 
 const ItemListContainer = () => {
 
     const [producto, setProducto] = useState([]);
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+
+        }, 2000)
+    },[])
     
     useEffect(()=>{
         promesa.then((producto) => {
@@ -25,8 +35,15 @@ const ItemListContainer = () => {
 
     return (
         <div className="item-list-container">
-            <ItemList items={ producto } />
-            <ItemCount stock='10' initial={1} onAdd={onAdd} />
+            {
+                loading ?
+                    <SpinnerCircular />
+                    :
+                    <div>
+                        <ItemList items={ producto } />
+                        <ItemCount stock='10' initial={1} onAdd={onAdd} /> 
+                    </div>
+            }
         </div>
     )
 }
