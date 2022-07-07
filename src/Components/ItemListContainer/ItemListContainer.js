@@ -1,24 +1,32 @@
 import React from 'react'
-import { useEffect, useState } from "react";
 import ItemCount from '../ItemCount/ItemCount'
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
-import { promesa } from '../../mocks/fakeApi';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"
 
 const ItemListContainer = () => {
 
     const [producto, setProducto] = useState([]);
+    const {categoryName} = useParams()
 
     
-    useEffect(()=>{
-        promesa.then((producto) => {
-            setProducto(producto);
-        })
-        .catch (() => {
-            console.log ("No cargaron los productos")
-        })
-
-    }, []);
+    useEffect(() => {
+        fetch("../../productos.json")
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json)
+                if (categoryName === undefined) {
+                    setProducto([...json]);
+                } else {
+                    setProducto(
+                        json.filter((product) => {
+                            return product.categoria === categoryName;
+                        })
+                    );
+                }
+            });
+    }, [categoryName]);
     
     function onAdd(cantidad) {
         console.log (`Has agregado ${cantidad} ${cantidad === 1 ? "producto" : "productos"}`)

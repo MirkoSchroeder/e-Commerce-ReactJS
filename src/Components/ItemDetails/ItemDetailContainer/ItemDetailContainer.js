@@ -1,38 +1,35 @@
 import { useEffect, useState } from "react"; 
+import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import ProductoListado from "../../../productos";
 import './ItemDetailContainer.css'
-
-
-const promesa = new Promise ((res,rej) =>{
-    setTimeout(()=>{
-        res(ProductoListado[0]);
-    },2000)
-});
 
 function ItemDetailContainer() {
 
-    const [placaVideo, setplacaVideo] = useState ({});
+    const [producto, setProducto] = useState({});
+    const { id } = useParams()
 
-    const getItem = () => {
-            promesa.then((placaVideo) => {
-                setplacaVideo(placaVideo);
+    useEffect (() => {
+        fetch("../../../productos.json")
+        .then((response) => response.json())
+        .then((json) => {
+            console.log (json)
+            const filterArray = json.filter((product) => {
+                console.log(product.id)
+                console.log(id)
+                return product.id === id
             })
-            .catch (() => {
-                console.log ("No cargo el producto")
-            })
-    }
+            setProducto(filterArray[0])
+        });
+}, [id]);
 
     return (
-        <div className="DetailContainer">
-            <button onClick={getItem}>Ver mas info</button>
-            {Object.keys(placaVideo).length !== 0 ? (
-                <ItemDetail item={placaVideo} />
+        <div>
+            {Object.keys(producto).length !== 0 ? (
+                <ItemDetail item={producto} />
             ) : (
                 ""
             )}
         </div>
-        
     )
 
 }

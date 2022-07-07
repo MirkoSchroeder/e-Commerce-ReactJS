@@ -2,29 +2,46 @@ import React from "react";
 import logo from "../../assets/logo.png"
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css"
+import { Link, NavLink } from "react-router-dom"
 
 
 const NavBar = () => {
+
+    const links = [
+        { name: "Notebooks", route: "notebooks", id: 1 },
+        { name: "Monitores", route: "monitores", id: 2 },
+        { name: "Placas de Video", route: "placas-de-video", id: 3 },
+    ]
     return (
         <header className="main-header">
             <div className="areas">
+
                 <div className="area-logo">
-                    <img className="main-logo" src={logo} alt="" />
+                    <Link to="/"><img className="main-logo" src={logo} alt="" /></Link>
                 </div>
+
                 <div className="area-search">
                     <input className="input" type="text" placeholder="Buscar" />
                 </div>
+
                 <div>
                     <p className="paragraph-header">Bienvenido/a</p>
                 </div>
-                <CartWidget onCart={0} />
+
+                <Link to="/cart">
+                    <CartWidget onCart={0} />
+                </Link>
             </div>
 
             <nav>
                 <ul className="navContainer">
-                    <li className="navItem"><a href="/">Notebooks</a></li>
-                    <li className="navItem"><a href="/">Monitores</a></li>
-                    <li className="navItem"><a href="/">Placas de video</a></li>
+                    {links.map((element) => {
+                        return (
+                            <li className="navItem" key={element.id}>
+                                <NavLink className='colorLinks' to={element.route}>{element.name}</NavLink>
+                            </li>
+                        )
+                    })}
                 </ul>
             </nav>
         </header>
