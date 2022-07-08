@@ -12,10 +12,11 @@ const ItemListContainer = () => {
 
     
     useEffect(() => {
-        fetch("../../productos.json")
-            .then((response) => response.json())
+        fetch("./productos.json")
+            .then((response) => {
+                return response.json()
+            })
             .then((json) => {
-                console.log(json)
                 if (categoryName === undefined) {
                     setProducto([...json]);
                 } else {

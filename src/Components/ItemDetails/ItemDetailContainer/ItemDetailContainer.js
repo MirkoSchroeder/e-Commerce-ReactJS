@@ -8,9 +8,11 @@ function ItemDetailContainer() {
     const [producto, setProducto] = useState({});
     const { id } = useParams()
 
-    useEffect (() => {
-        fetch("../../../productos.json")
-        .then((response) => response.json())
+    useEffect(() => {
+        fetch("./productos.json")
+            .then((response) => {
+                return response.json()
+            })
         .then((json) => {
             console.log (json)
             const filterArray = json.filter((product) => {
