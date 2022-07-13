@@ -18,7 +18,7 @@ function ItemDetailContainer() {
             const filterArray = json.filter((product) => {
                 console.log(product.id)
                 console.log(id)
-                return product.id === id
+                return product.id === parseInt(id)
             })
             setProducto(filterArray[0])
         });
