@@ -1,3 +1,8 @@
+import ItemCount from "../../ItemCount/ItemCount";
+
+function onAdd(cantidad) {
+        console.log (`Has agregado ${cantidad} ${cantidad === 1 ? "producto" : "productos"}`)
+    }
 
 const ItemDetail = ({item}) => {
 
@@ -11,6 +16,7 @@ const ItemDetail = ({item}) => {
                 <p>Modelo: {item.modelo}</p>
                 <p>Caracteristicas: {item.caracteristicas}</p>
             </div>
+            <ItemCount stock='10' initial={1} onAdd={onAdd} />
         </div>
     )
 
