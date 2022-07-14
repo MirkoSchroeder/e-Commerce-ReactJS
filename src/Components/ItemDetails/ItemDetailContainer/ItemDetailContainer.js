@@ -9,7 +9,7 @@ function ItemDetailContainer() {
     const { id } = useParams()
 
     useEffect(() => {
-        fetch("./productos.json")
+        fetch("/productos.json")
             .then((response) => {
                 return response.json()
             })
