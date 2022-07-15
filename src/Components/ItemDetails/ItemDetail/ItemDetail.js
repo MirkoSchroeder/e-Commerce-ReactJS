@@ -1,12 +1,18 @@
 import ItemCount from "../../ItemCount/ItemCount";
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { cartContext } from "../../Context/CartContext.js";
+import { useContext } from "react";
 
-function onAdd(cantidad) {
-        console.log (`Has agregado ${cantidad} ${cantidad === 1 ? "producto" : "productos"}`)
+
+
+const ItemDetail = ({ item }) => {
+    
+    const { addProduct } = useContext(cartContext);
+
+    const onAdd = (cantidad) => {
+        addProduct(item,cantidad)
+        console.log(`Has agregado ${cantidad} ${cantidad === 1 ? "producto" : "productos"}`)
     }
-
-const ItemDetail = ({item}) => {
 
     return (
 

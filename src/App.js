@@ -8,18 +8,23 @@ import {
   Routes,
   Route
 } from "react-router-dom"
+import CustomProvider from './Components/Context/CartContext';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <NavBar />
+      
+      <CustomProvider>
 
-      <Routes>
-        <Route path="/" element={<ItemListContainer/>}></Route >
-        <Route path="/categoryName" element={<ItemListContainer/>}></Route >
-        <Route path="/item/:id" element={<ItemDetailContainer />}></Route >
-        <Route path="/cart" element={<Cart/>}></Route >
-      </Routes>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer/>}></Route >
+          <Route path="/categoryName" element={<ItemListContainer/>}></Route >
+          <Route path="/item/:id" element={<ItemDetailContainer />}></Route >
+          <Route path="/cart" element={<Cart/>}></Route >
+        </Routes>
+
+      </CustomProvider>
 
     </BrowserRouter>
   )
