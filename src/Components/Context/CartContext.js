@@ -41,8 +41,12 @@ const CustomProvider = ({children}) => {
         setCarrito([]);
     };
 
+    const totalCarrito = carrito.reduce((accumulator, element) => {
+        return accumulator + element.cantidad * element.precio;
+    }, 0);
+
     return (
-        <Provider value={{ carrito, addProduct, delProduct, getProductQty, clearCart }} >
+        <Provider value={{ carrito, totalCarrito, addProduct, delProduct, getProductQty, clearCart }} >
             {children}
         </Provider>
     )
