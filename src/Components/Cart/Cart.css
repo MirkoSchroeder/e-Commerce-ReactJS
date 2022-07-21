@@ -25,3 +25,8 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.divCarritoFinalCenter {
+    display: flex;
+    justify-content: center;
+}

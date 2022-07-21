@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import './ItemDetailContainer.css'
+import { doc, getDoc, collection } from "firebase/firestore";
+import { db } from "../../../firebase/firebase"
 
 function ItemDetailContainer() {
 
@@ -9,19 +11,19 @@ function ItemDetailContainer() {
     const { id } = useParams()
 
     useEffect(() => {
-        fetch("/productos.json")
-            .then((response) => {
-                return response.json()
+        
+        const productsCollection = collection(db, "productos");
+        const refDoc = doc(productsCollection, id);
+        getDoc(refDoc)
+            .then((result) => {
+                const id = result.id;
+                const item = { id, ...result.data() };
+                setProducto(item);
             })
-        .then((json) => {
-            console.log (json)
-            const filterArray = json.filter((product) => {
-                console.log(product.id)
-                console.log(id)
-                return product.id === parseInt(id)
-            })
-            setProducto(filterArray[0])
-        });
+            .catch((error) => {
+                console.log(error);
+            });
+        
 }, [id]);
 
     return (

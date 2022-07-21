@@ -27,10 +27,12 @@ const Cart = () => {
                             )
                         })}
                     </div>
-                    <div className="divCarritoFinal">
-                        <p>Total a pagar: ${totalCarrito}</p>
-                        <button onClick={clearCart}>Vaciar Carrito</button>
-                        <button>Terminar compra</button>
+                    <div className="divCarritoFinalCenter">
+                        <div className="divCarritoFinal">
+                            <p>Total a pagar: ${totalCarrito}</p>
+                            <button onClick={clearCart}>Vaciar Carrito</button>
+                            <button>Terminar compra</button>
+                        </div>
                     </div>
 				</>
 

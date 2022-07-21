@@ -41,8 +41,8 @@ const CustomProvider = ({children}) => {
         setCarrito([]);
     };
 
-    const totalCarrito = carrito.reduce((accumulator, element) => {
-        return accumulator + element.cantidad * element.precio;
+    const totalCarrito = carrito.reduce((acc, element) => {
+        return acc + element.cantidad * element.precio;
     }, 0);
 
     return (
