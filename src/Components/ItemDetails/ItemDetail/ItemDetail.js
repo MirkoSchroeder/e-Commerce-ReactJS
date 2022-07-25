@@ -1,8 +1,8 @@
 import ItemCount from "../../ItemCount/ItemCount";
+import "./ItemDetail.css"
 import Card from 'react-bootstrap/Card';
 import { cartContext } from "../../Context/CartContext.js";
 import { useContext } from "react";
-
 
 
 const ItemDetail = ({ item }) => {
@@ -18,7 +18,7 @@ const ItemDetail = ({ item }) => {
 
         <div id={item.id}>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={item.image} />
+                <Card.Img variant="top" className="imgItemDetail" src={item.image} />
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>

@@ -1,13 +1,34 @@
 import React from "react"
 import "./Cart.css"
 import { cartContext } from "../Context/CartContext.js";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom"
+import { addDoc, collection, serverTimestamp, updateDoc, doc, getDoc} from "firebase/firestore"
+import { db } from "../../firebase/firebase"
 
 
 const Cart = () => {
     const { clearCart, carrito, delProduct, totalCarrito } = useContext(cartContext);
     
+    const [ ticket, setTicket ] = useState("");
+	const comprador = {
+		name: "Mirko",
+		lastname: "Schroeder",
+		mail: "ms@hotmail.com"
+	}
+
+	const finalizarCompra = () => {
+		const ventaCollec = collection(db, "ventas");
+		addDoc(ventaCollec, {
+			cliente: comprador,
+			items: carrito,
+			date: serverTimestamp(),
+			total: totalCarrito
+		})
+		.then((result) => {
+			setTicket(result.id);
+		})
+	}
     return (
         <>
             {carrito.length > 0 ? (
@@ -31,7 +52,11 @@ const Cart = () => {
                         <div className="divCarritoFinal">
                             <p>Total a pagar: ${totalCarrito}</p>
                             <button onClick={clearCart}>Vaciar Carrito</button>
-                            <button>Terminar compra</button>
+                            <button onClick={finalizarCompra}>Finalizar compra</button>
+                            {ticket ?
+                                <p>Gracias por su compra, el ID de su compra es {ticket}</p>
+                            :
+                            <></>}
                         </div>
                     </div>
 				</>
