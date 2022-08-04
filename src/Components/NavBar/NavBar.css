@@ -1,33 +1,33 @@
-*{
+/* *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+} */
 
-.main-header {
+/* .main-header {
     background-color: #37373f;
     width: 100%;
-}
+} */
 
-.areas {
+/* .areas {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 1em 0;
-}
+} */
 
-.main-logo {
+/* .main-logo {
     width: 12em;
-}
+} */
 
-.input {
+/* .input {
     width: 35.5em;
     height: 3em;
     border-top-left-radius: 1em;
     font-size: 1em;
     font-weight: 300;
     padding-left: 1em;
-}
+} */
 
 .paragraph-header {
     color: white;

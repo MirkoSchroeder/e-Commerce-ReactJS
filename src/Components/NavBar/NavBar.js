@@ -13,15 +13,14 @@ const NavBar = () => {
         { name: "Placas de Video", route: "placas-de-video", id: 3 },
     ]
     return (
-        <header className="main-header">
-            <div className="areas">
-
+        <header className="bg-[#37373f] w-full">
+            <div className="flex items-center justify-around px-0 py-4">
                 <div className="area-logo">
-                    <Link to="/"><img className="main-logo" src={logo} alt="" /></Link>
+                    <Link to="/"><img className="w-48" src={logo} alt="" /></Link>
                 </div>
 
                 <div className="area-search">
-                    <input className="input" type="text" placeholder="Buscar" />
+                    <input className="w-[35.5em] h-[3em] rounded-tl-lg text-[1em] font-light pl-3" type="text" placeholder="Buscar" />
                 </div>
 
                 <div>

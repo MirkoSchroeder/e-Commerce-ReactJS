@@ -1,6 +1,5 @@
 import React from 'react'
 import ItemList from '../ItemList/ItemList';
-import './ItemListContainer.css'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { db } from "../../firebase/firebase"
@@ -35,7 +34,7 @@ const ItemListContainer = () => {
     
 
     return (
-        <div className="item-list-container">
+        <div className="flex flex-col text-center">
             <ItemList items={ producto } />
         </div>
     )
